@@ -1,0 +1,10 @@
+{
+	"id": "finshots-daily",
+	"name": "Finshots Daily Article",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "A plugin to fetch and display the latest Finshots Daily articles",
+	"author": "Nitish Khurana",
+	"authorUrl": "https://github.com/nitishkhurana",
+	"isDesktopOnly": false
+}
