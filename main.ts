@@ -23,14 +23,14 @@ export default class FinshotsDailyPlugin extends Plugin {
         );
 
         // Add ribbon icon
-        this.addRibbonIcon('newspaper', 'Open Finshots Daily', () => {
+        this.addRibbonIcon('newspaper', 'Open Finshots daily', () => {
             this.activateView();
         });
 
         // Add command
         this.addCommand({
             id: 'open-finshots-daily',
-            name: 'Open Finshots Daily',
+            name: 'Open Finshots daily',
             callback: () => {
                 this.activateView();
             },
@@ -102,7 +102,7 @@ export default class FinshotsDailyPlugin extends Plugin {
                 await leaf.view.loadArticle();
             }
         }
-        new Notice('Finshots Daily article refreshed');
+        new Notice('Finshots daily article refreshed');
     }
    
 }
