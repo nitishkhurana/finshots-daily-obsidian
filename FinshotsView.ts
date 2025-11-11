@@ -17,7 +17,7 @@ export class FinshotsView extends ItemView {
     }
 
     getDisplayText(): string {
-        return "Finshots Daily";
+        return "Finshots daily";
     }
 
     getIcon(): string {
@@ -37,7 +37,7 @@ export class FinshotsView extends ItemView {
         container.empty();
 
         const headerEl = container.createEl("div", { cls: "finshots-header" });
-        headerEl.createEl("h2", { text: "Finshots Daily" });
+        headerEl.createEl("h2", { text: "Finshots daily" });
 
         const refreshBtn = headerEl.createEl("button", {
             text: "Refresh",
@@ -103,7 +103,7 @@ export class FinshotsView extends ItemView {
 
         // Read more button
         const readMoreEl = articleEl.createEl("a", {
-            text: "Read Full Article",
+            text: "Read full article",
             cls: "finshots-read-more"
         });
         readMoreEl.href = this.article.articleUrl;
