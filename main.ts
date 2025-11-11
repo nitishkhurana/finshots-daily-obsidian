@@ -102,7 +102,7 @@ export default class FinshotsDailyPlugin extends Plugin {
                 await leaf.view.loadArticle();
             }
         }
-        new Notice('Finshots Daily article refreshed');
+        new Notice('Finshots daily article refreshed');
     }
    
 }
