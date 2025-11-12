@@ -48,7 +48,6 @@ export class FinshotsView extends ItemView {
         const contentEl = container.createEl("div", { cls: "finshots-content" });
 
         this.renderContent(contentEl);
-        this.addStyles();
     }
 
     private renderContent(contentEl: HTMLElement) {
@@ -108,87 +107,6 @@ export class FinshotsView extends ItemView {
         });
         readMoreEl.href = this.article.articleUrl;
         readMoreEl.target = "_blank";
-    }
-
-    private addStyles() {
-        const styleEl = document.createElement("style");
-        styleEl.textContent = `
-            .finshots-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px;
-                border-bottom: 1px solid var(--background-modifier-border);
-                margin-bottom: 10px;
-            }
-            
-            .finshots-refresh-btn {
-                padding: 5px 10px;
-                background: var(--interactive-accent);
-                color: var(--text-on-accent);
-                border: none;
-                border-radius: 3px;
-                cursor: pointer;
-            }
-            
-            .finshots-content {
-                padding: 10px;
-            }
-            
-            .finshots-loading, .finshots-error {
-                text-align: center;
-                padding: 20px;
-                color: var(--text-muted);
-            }
-            
-            .finshots-article {
-                border: 1px solid var(--background-modifier-border);
-                border-radius: 5px;
-                padding: 15px;
-                background: var(--background-secondary);
-            }
-            
-            .finshots-date {
-                font-size: 0.8em;
-                color: var(--text-muted);
-                margin-bottom: 10px;
-            }
-            
-            .finshots-image {
-                width: 100%;
-                max-height: 200px;
-                object-fit: cover;
-                border-radius: 3px;
-                margin-bottom: 10px;
-            }
-            
-            .finshots-title {
-                margin: 0 0 10px 0;
-                color: var(--text-normal);
-                line-height: 1.3;
-            }
-            
-            .finshots-summary {
-                color: var(--text-muted);
-                line-height: 1.4;
-                margin-bottom: 15px;
-            }
-            
-            .finshots-read-more {
-                display: inline-block;
-                padding: 8px 15px;
-                background: var(--interactive-accent);
-                color: var(--text-on-accent);
-                text-decoration: none;
-                border-radius: 3px;
-                font-size: 0.9em;
-            }
-            
-            .finshots-read-more:hover {
-                background: var(--interactive-accent-hover);
-            }
-        `;
-        document.head.appendChild(styleEl);
     }
 
     async loadArticle() {
