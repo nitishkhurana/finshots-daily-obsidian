@@ -1,5 +1,5 @@
 import FinshotsDailyPlugin, { FinshotsArticle, FINSHOTS_VIEW_TYPE } from 'main';
-import { ItemView, WorkspaceLeaf, Notice } from 'obsidian';
+import { ItemView, WorkspaceLeaf, Notice, requestUrl } from 'obsidian';
 
 
 export class FinshotsView extends ItemView {
@@ -32,7 +32,7 @@ export class FinshotsView extends ItemView {
     async onClose() {
     }
 
-    private async render() {
+    private render() {
         const container = this.containerEl.children[1];
         container.empty();
 
@@ -135,13 +135,18 @@ export class FinshotsView extends ItemView {
             const proxyUrl = 'https://api.allorigins.win/get?url=';
             const targetUrl = encodeURIComponent('https://finshots.in/archive/');
 
-            const response = await fetch(proxyUrl + targetUrl);
+            const response = await requestUrl({ url: proxyUrl + targetUrl, method: 'GET' });
 
-            if (!response.ok) {
+            if (response.status < 200 || response.status >= 300) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            const data = await response.json();
+            let data: any;
+            try {
+                data = typeof response.json === 'object' ? response.json : JSON.parse(response.text);
+            } catch (e) {
+                throw new Error('Failed to parse proxy response');
+            }
 
             // Check if we have the expected structure
             if (!data || !data.contents) {
