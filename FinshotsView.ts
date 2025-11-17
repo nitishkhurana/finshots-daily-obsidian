@@ -25,7 +25,7 @@ export class FinshotsView extends ItemView {
     }
 
     async onOpen() {
-        await this.render();
+        this.render();
         await this.loadArticle();
     }
 
