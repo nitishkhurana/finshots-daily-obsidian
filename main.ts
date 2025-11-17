@@ -15,7 +15,7 @@ export default class FinshotsDailyPlugin extends Plugin {
 
     private refreshInterval: number | null = null;
 
-    async onload() {
+    onload() {
 
         this.registerView(
             FINSHOTS_VIEW_TYPE,
@@ -24,7 +24,7 @@ export default class FinshotsDailyPlugin extends Plugin {
 
         // Add ribbon icon
         this.addRibbonIcon('newspaper', 'Open Finshots daily', () => {
-            this.activateView();
+            void this.activateView();
         });
 
         // Add command
@@ -32,7 +32,7 @@ export default class FinshotsDailyPlugin extends Plugin {
             id: 'open-finshots-daily',
             name: 'Open Finshots daily',
             callback: () => {
-                this.activateView();
+                void this.activateView();
             },
         });
 
@@ -88,9 +88,9 @@ export default class FinshotsDailyPlugin extends Plugin {
         const timeUntilRefresh = nextRefresh.getTime() - now.getTime();
 
         setTimeout(() => {
-            this.refreshArticle();
+            void this.refreshArticle();
             this.refreshInterval = window.setInterval(() => {
-                this.refreshArticle();
+                void this.refreshArticle();
             }, 24 * 60 * 60 * 1000); // 24 hours
         }, timeUntilRefresh);
     }
