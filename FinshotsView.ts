@@ -175,7 +175,6 @@ export class FinshotsView extends ItemView {
                 firstArticle = doc.querySelector(selector);
                 if (firstArticle) {
                     usedSelector = selector;
-                    console.log(`Found article using selector: ${selector}`);
                     break;
                 }
             }
@@ -204,7 +203,6 @@ export class FinshotsView extends ItemView {
                 if (titleElement) {
                     title = titleElement.textContent?.trim() || '';
                     if (title) {
-                        console.log(`Found title using selector: ${selector}`);
                         break;
                     }
                 }
@@ -212,7 +210,6 @@ export class FinshotsView extends ItemView {
 
             if (!title) {
                 title = 'Latest Finshots Article';
-                console.log('Using fallback title');
             }
 
             const imageSelectors = [
@@ -237,7 +234,6 @@ export class FinshotsView extends ItemView {
                         }
                     }
                     if (imageUrl) {
-                        console.log(`Found image using selector: ${selector}`);
                         break;
                     }
                 }
@@ -258,7 +254,6 @@ export class FinshotsView extends ItemView {
                 if (linkElement) {
                     articleUrl = linkElement.getAttribute('href') || '';
                     if (articleUrl && articleUrl !== '#') {
-                        console.log(`Found link using selector: ${selector}`);
                         break;
                     }
                 }
@@ -284,7 +279,6 @@ export class FinshotsView extends ItemView {
                 if (dateElement) {
                     dateString = dateElement.getAttribute('datetime') || dateElement.textContent?.trim() || '';
                     if (dateString) {
-                        console.log(`Found date using selector: ${selector}`);
                         break;
                     }
                 }
@@ -316,7 +310,6 @@ export class FinshotsView extends ItemView {
                 if (excerptElement) {
                     summary = excerptElement.textContent?.trim() || '';
                     if (summary && summary.length > 20) { // Ensure it's not just a short text
-                        console.log(`Found summary using selector: ${selector}`);
                         break;
                     }
                 }
@@ -337,7 +330,6 @@ export class FinshotsView extends ItemView {
                 if (tagElement) {
                     category = tagElement.textContent?.trim() || '';
                     if (category) {
-                        console.log(`Found category using selector: ${selector}`);
                         break;
                     }
                 }
