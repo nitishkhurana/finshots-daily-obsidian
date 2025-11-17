@@ -141,7 +141,7 @@ export class FinshotsView extends ItemView {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            let data: any;
+            let data: { contents?: string };
             try {
                 data = typeof response.json === 'object' ? response.json : JSON.parse(response.text);
             } catch (e) {
