@@ -29,7 +29,7 @@ export default class FinshotsDailyPlugin extends Plugin {
 
         // Add command
         this.addCommand({
-            id: 'open-finshots-daily',
+            id: 'openfinshotsdailyplugin',
             name: 'Open Finshots daily',
             callback: () => {
                 void this.activateView();
