@@ -43,7 +43,7 @@ export class FinshotsView extends ItemView {
             text: "Refresh",
             cls: "finshots-refresh-btn"
         });
-        refreshBtn.addEventListener("click", () => this.loadArticle());
+        refreshBtn.addEventListener("click", () => void this.loadArticle());
 
         const contentEl = container.createEl("div", { cls: "finshots-content" });
 
